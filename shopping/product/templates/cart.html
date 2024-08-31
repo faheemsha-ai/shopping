@@ -1,0 +1,30 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h1>Your Cart Items</h1>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item Name </th>
+            <th scope="col">Qty</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for a in cart_items %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{a.product}}</td>
+            <td>{{a.quantity}}</td>
+            <td> <button class="btn btn-danger">Delete</button> </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+<a href="/"><button class="btn btn-danger" type="submit" style="margin-left: 4%;">Continue Shoping</button></a>
+<button class="btn btn-warning" type="submit" style="margin-left: 4%;">Cart Total : {{total_price}} Checkout</button>
+
+{% endblock %}

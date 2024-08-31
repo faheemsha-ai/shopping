@@ -1,0 +1,67 @@
+{% extends 'theme.html' %}
+{% block content%}
+{% load static %}
+
+<h1
+  style="background-color: black;color: aliceblue;font-weight: normal;cursor: pointer;border-radius: 5px;text-align: center;">
+  FRUIT</h1>
+<div class="container">
+  <div class="row">
+    {% for a in fr %}
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;margin-top: 2%;margin-right: 4%;">
+        <img src="{{a.img.url}}" class="card-img-top" alt="..." style="height: 304px;width:286px;">
+        <hr style="color: red;">
+        <div class="card-body">
+          <h5 class="card-title">{{a.item}}</h5>
+          <p class="card-text"><del>₹ : {{a.price}}</del></p>
+          <p class="card-text">₹ :{{a.sales_price}}</p>
+          {% if a.stock == '0' %}
+              <p style="color: red;">Stock Out</p>
+          {% else %}
+              <p style="color: green;">Stock In</p>
+          {% endif %}
+          <p class="card-text">{{a.des}}</p>
+          {% if a.stock == '0' %}
+              <a href="#" class="btn btn-warning">NOTIFY ME</a>
+          {% else %}
+              <a href="#" class="btn btn-primary">Add To Cart</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<br><br>
+<h1 style="background-color: black;color: aliceblue;font-weight: normal;cursor: pointer;border-radius: 5px;text-align: center;">ELECTRONICS</h1>
+<div class="container">
+  <div class="row">
+    {% for a in el %}
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;margin-top: 2%;margin-right: 4%;">
+        <img src="{{a.img.url}}" class="card-img-top" alt="..." style="height: 304px;width: 286px; ">
+        <hr style="color: red;">
+        <div class="card-body">
+          <h5 class="card-title">{{a.item}}</h5>
+          <p class="card-text"><del>₹ : {{a.price}}</del></p>
+          <p class="card-text">₹ :{{a.sales_price}}</p>
+          {% if a.stock == '0' %}
+              <p style="color: red;">Stock Out</p>
+          {% else %}
+              <p style="color: green;">Stock In</p>
+          {% endif %}
+          <p class="card-text">{{a.des}}</p>
+          {% if a.stock == '0' %}
+              <a href="#" class="btn btn-warning">NOTIFY ME</a>
+          {% else %}
+              <a href="#" class="btn btn-primary">Add To Cart</a>
+          {% endif %} 
+        </div>  
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
